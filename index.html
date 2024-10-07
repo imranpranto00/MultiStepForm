@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Step Form</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/validation.js"></script>
+    <script src="js/sameAsGuarantor.js"></script>
+    <script src="js/multiStepProgress.js"></script>
+    <script src="js/customerFamily.js"></script>
+
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">
+            <img src="images/walton logo.png" alt="Walton Logo">
+        </div>
+        <div class="welcome-message">
+            <h1>Welcome!</h1>
+            <p>Fayz</p>
+        </div>
+        <div class="actions">
+            <div class="action-item">
+                <img src="images/change password.png" alt="Password Icon" class="icon">
+                <a href="#">Change Password</a>
+            </div>
+            <div class="action-item">
+                <img src="images/logout.png" alt="Logout Icon" class="icon">
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar Section -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Purchase &#x25BC;</a></li>
+            <li><a href="#">Inventory &#x25BC;</a></li>
+            <li><a href="#">Sales &#x25BC;</a></li>
+            <li><a href="#">Accounts &#x25BC;</a></li>
+            <li><a href="#">List &#x25BC;</a></li>
+            <li><a href="#">WOSP &#x25BC;</a></li>
+            <li><a href="#">VAT &#x25BC;</a></li>
+            <li><a href="#">Knowledge &#x25BC;</a></li>
+        </ul>
+    </nav>
+
+    <!-- New Section with Border and Texts -->
+    <div class="outer-border">
+        <div class="inner-border">
+            <div class="flex-container">
+                <p class="left-text">Hire Sale</p>
+                <div class="right-text-container">
+                    <p class="right-text"><strong>Walton
+                            Plaza-Kuril</strong></p>
+                    <p class="address">KA-227, South Kuril, Badda,
+                        Dhaka-1229</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- -------------------customer information-------------------- -->
+
+        <!-- ----------------------multistep customer information---------------- -->
+        <div class="form-container">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+                <div class="progress" id="progress"></div>
+                <div class="progress-step-container">
+                    <div class="progress-step active" data-step="1"></div>
+                    <div class="progress-step" data-step="2"></div>
+                    <div class="progress-step" data-step="3"></div>
+                    <div class="progress-step" data-step="4"></div>
+                    <div class="progress-step" data-step="5"></div>
+                    <div class="progress-step" data-step="6"></div>
+                </div>
+            </div>
+
+            <!-- Multi-Step Form -->
+            <form id="multi-step-form">
+
+                <!-- Step 1: Customer Information -->
+                <div class="form-step active" id="step-1">
+                    <legend>
+                        <h3>Customer Information</h3>
+                    </legend>
+
+                    <div class="form-section">
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="number" class="input-field" id="national-id" name="national-id" required
+                                    placeholder="EX:  3761189098" oninput="validateNidField(id)">
+                                <label for="national-id">National ID
+                                    <span class="required">*</span></label>
+                                <span class="error-message" id="error-national-id"
+                                    data="Valid 10 or 16 digit National Id">Valid 10 or 16 digit National Id</span>
+                                <span id="icon-national-id" class="validation-icon"></span> <!-- Icon element -->
+
+
+
+                            </div>
+                        </div>
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="text" id="customer-name" name="customer-name" required
+                                    placeholder="EX:  Muhammad bin Bakhtiyar Khilji" oninput="validateNameField(id)">
+                                <label for="customer-name">Customer Name
+                                    <span class="required">*</span></label>
+                                <span class="error-message" id="error-customer-name"></span>
+                                <span id="icon-customer-name" class="validation-icon"></span> <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="number" id="mobile-no" name="mobile-no" placeholder="01535762799"
+                                    oninput="validateMobileField(id)" required>
+                                <label for="mobile-no">Mobile No <span class="required">*</span></label>
+                                <span class="error-message" id="error-mobile-no"
+                                    data="Customer's 11-digit valid mobile">
+                                    Customer's 11-digit valid mobile number
+                                </span>
+                                <span id="icon-mobile-no" class="validation-icon"></span> <!-- Icon element -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-section">
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="date" id="customer-dob" name="customer-dob" required placeholder=" "
+                                    onchange="validateDropField(id)" onclick="validateDropField(id)">
+                                <label for="customer-dob">Customer DOB
+                                    <span class="required">*</span></label>
+                                <span class="error-message" id="error-customer-dob"></span>
+                                <span id="icon-customer-dob" class="validation-icon"></span> <!-- Icon element -->
+
+                            </div>
+                        </div>
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="number" id="account-no" name="account-no" required
+                                    oninput="validateAccountField(id)" placeholder="Enter Account No ">
+                                <label for="account-no">Account No <span class="required">*</span></label>
+                                <span class="error-message" id="error-account-no"
+                                    data="Enter valid account number">Enter
+                                    valid account number
+                                </span>
+                                <span id="icon-account-no" class="validation-icon"></span> <!-- Icon element -->
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-field1">
+
+                            <div class="form-group">
+                                <textarea id="customer-address" name="customer-address" required
+                                    oninput="validateAddressField(id)"
+                                    placeholder="EX:  House No. 290, Purana Paltan. Dhaka – 1000"></textarea>
+                                <label for="customer-address">Customer
+                                    Address <span class="required">*</span></label>
+                                <span class="error-message" id="error-customer-address"> </span>
+                                <span id="icon-customer-address" class="validation-icon"></span> <!-- Icon element -->
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="form-section">
+
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="text" id="kisti-card-no" name="kisti-card-no"
+                                    oninput="validateKistiField(id)" placeholder="Enter kisti-card-no ">
+                                <label for="kisti-card-no">Kisti
+                                    Surokkha Card No</label>
+                                <span class="error-message" id="error-kisti-card-no"> </span>
+                                <span id="icon-kisti-card-no" class="validation-icon"></span> <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="text" id="credit-limit" name="credit-limit" required
+                                    oninput="validateNumberField(id)" placeholder="Enter Credit Limit ">
+                                <label for="credit-limit">Credit Limit
+                                    <span class="required">*</span></label>
+                                <span class="error-message" id="error-credit-limit"> </span>
+
+                            </div>
+                        </div>
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <select id="sale-by" name="first-guarantor-relation" required
+                                    onclick="validateDropField(id)" oninput="validateDropField(id)">
+                                    <option class="list-choice-title" value disabled selected>Choose ID</option>
+                                    <option value="family">#</option>
+                                    <option value="friend">#</option>
+                                    <option value="colleague">#</option>
+                                </select>
+                                <label for="sale-by">Sale By <span class="required">*</span></label>
+                                <span class="error-message" id="error-sale-by" data="Select an option"> </span>
+                                <span id="icon-sale-by" class="validation-icon"></span> <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Step 2: Guarantor Information -->
+                <div class="form-step" id="step-2">
+
+                    <legend>
+                        <h3>Guarantor Information</h3>
+                    </legend>
+
+                    <!-- First Guarantor -->
+
+                    <legend>
+                        <h4>First Guarantor</h4>
+                    </legend>
+
+                    <div class="form-section">
+
+                        <div class="form-field">
+                            <div class="form-group">
+                                <input type="number" id="first-guarantor-employee-id" name="first-guarantor-employee-id"
+                                    oninput="validateNumberField(id)" placeholder="Enter employee id">
+                                <label for="first-guarantor-employee-id">Employee
+                                    ID</label>
+                                <span class="error-message" id="error-first-guarantor-employee-id"
+                                    data="If Guarantor is Walton Group Employee">If Guarantor is Walton Group
+                                    Employee</span>
+                                <span id="icon-first-guarantor-employee-id" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-section">
+                        <div class="form-field">
+                            <div class="form-group">
+                                <input type="text" id="first-guarantor-name" name="first-guarantor-name" required
+                                    oninput="validateNameField(id)" placeholder="EX:  Muhammad bin Bakhtiyar Khilji">
+                                <label for="first-guarantor-name">Name <span class="required">*</span></label>
+                                <span class="error-message" id="error-first-guarantor-name">
+                                </span>
+                                <span id="icon-first-guarantor-name" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+                            </div>
+                        </div>
+                        <div class="form-field">
+                            <div class="form-group">
+                                <input type="number" id="first-guarantor-mobile" name="first-guarantor-mobile" required
+                                    oninput="validateMobileField(id)" placeholder="01535762799">
+                                <label for="first-guarantor-mobile">Mobile No <span class="required">*</span></label>
+                                <span class="error-message" id="error-first-guarantor-mobile"
+                                    data="11-digit valid mobile number">11-digit valid mobile
+                                    number</span>
+                                <span id="icon-first-guarantor-mobile" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-field">
+                            <div class="form-group">
+                                <input type="number" id="first-guarantor-national-id" name="first-guarantor-national-id"
+                                    oninput="validateNidField(id)" placeholder="EX:  3761189098">
+                                <label for="first-guarantor-national-id">
+                                    National ID</label>
+                                <span class="error-message" id="error-first-guarantor-national-id">Valid 10 digit
+                                    National Id</span>
+                                <span id="icon-first-guarantor-national-id" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <div class="form-group">
+                                <select id="first-guarantor-relation" name="first-guarantor-relation" required
+                                    onclick="validateDropField(id)" oninput="validateDropField(id)">
+                                    <option value disabled selected>Choose
+                                        Relation</option>
+                                    <option value="family">Family</option>
+                                    <option value="friend">Friend</option>
+                                    <option value="colleague">Colleague</option>
+                                </select>
+                                <label for="first-guarantor-relation">Relationship
+                                    (with Customer) <span class="required">*</span></label>
+                                <span class="error-message" id="error-first-guarantor-relation"
+                                    data="Select an option"></span>
+                                <span id="icon-first-guarantor-relation" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-section">
+                        <div class="form-field">
+                            <div class="form-group">
+                                <textarea id="first-guarantor-address" name="first-guarantor-address" required
+                                    oninput="validateAddressField(id)"
+                                    placeholder="EX:  House No. 290, Purana Paltan. Dhaka – 1000"></textarea>
+                                <label for="first-guarantor-address">
+                                    Address <span class="required">*</span></label>
+                                <span class="error-message" id="error-first-guarantor-address"></span>
+                                <span id="icon-first-guarantor-address" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Second Guarantor -->
+                    <legend>
+                        <h4>Second Guarantor</h4>
+                    </legend>
+                    <div class="form-section">
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="number" id="second-guarantor-employee-id"
+                                    name="second-guarantor-employee-id" oninput="validateNumberField(id)"
+                                    placeholder="Enter Employee ID">
+                                <label for="second-guarantor-employee-id">Employee
+                                    ID</label>
+                                <span class="error-message" id="error-second-guarantor-employee-id"
+                                    data="If Guarantor is Walton Group Employee">If Guarantor is Walton Group
+                                    Employee</span>
+                                <span id="icon-second-guarantor-employee-id" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="text" id="second-guarantor-name" name="second-guarantor-name" required
+                                    oninput="validateNameField(id)" placeholder="EX:  Muhammad bin Bakhtiyar Khilji">
+                                <label for="second-guarantor-name">
+                                    Name <span class="required">*</span></label>
+                                <span class="error-message" id="error-second-guarantor-name"></span>
+                                <span id="icon-second-guarantor-name" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="number" id="second-guarantor-mobile" name="second-guarantor-mobile"
+                                    required oninput="validateMobileField(id)" placeholder="01535762799">
+                                <label for="second-guarantor-mobile">
+                                    Mobile No <span class="required">*</span></label>
+                                <span class="error-message" id="error-second-guarantor-mobile">11-digit valid mobile
+                                    number</span>
+                                <span id="icon-second-guarantor-mobile" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="text" id="second-guarantor-national-id" name="second-guarantor-national-id"
+                                    oninput="validateNidField(id)" placeholder="EX:  3761189098">
+                                <label for="second-guarantor-national-id">
+                                    National ID</label>
+                                <span class="error-message" id="error-second-guarantor-national-id">Valid 10 digit
+                                    National Id</span>
+                                <span id="icon-second-guarantor-national-id" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-section">
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <textarea id="second-guarantor-address" name="second-guarantor-address" required
+                                    oninput="validateAddressField(id)"
+                                    placeholder="EX:  House No. 290, Purana Paltan. Dhaka – 1000"></textarea>
+                                <label for="second-guarantor-address">
+                                    Address <span class="required">*</span></label>
+                                <span class="error-message" id="error-second-guarantor-address"></span>
+                                <span id="icon-second-guarantor-address" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-section">
+
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <select id="second-guarantor-relation" name="second-guarantor-relation" required
+                                    onclick="validateDropField(id)" oninput="validateDropField(id)">
+                                    <option value disabled selected>Choose
+                                        Relation</option>
+                                    <option value="family">Family</option>
+                                    <option value="friend">Friend</option>
+                                    <option value="colleague">Colleague</option>
+                                </select>
+                                <label for="second-guarantor-relation">Relationship
+                                    (with Customer) <span class="required">*</span></label>
+                                <span class="error-message" id="error-second-guarantor-relation"
+                                    data="Please Select an option"></span>
+                                <span id="icon-second-guarantor-relation" class="validation-icon"></span>
+                                <!-- Icon element -->
+
+
+                                <!-- <small>With Customer</small> -->
+                            </div>
+                        </div>
+                        <div class="form-field1">
+                            <div class="form-group">
+                                <input type="text" id="purchaser-bin" name="purchaser-bin"
+                                    placeholder="Enter Purchaser Bin ">
+                                <label for="purchaser-bin">Purchaser
+                                    Bin</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Nominee Information -->
+                <div class="form-step" id="step-3">
+
+                    <legend>
+                        <h3>Nominee Information</h3>
+                    </legend>
+
+                    <!-- -----custom radio design -->
+                    <!-- Options -->
+                    <!-- Nominee Options -->
+                    <div class="nominee-options">
+                        <div class="custom-radio">
+                            <div class="checkbox-wrapper-31">
+                                <input type="radio" name="nominee" id="sameAsFirstGuarantor" value="first-guarantor"
+                                    onchange="handleNomineeSelection()">
+                                <svg viewBox="0 0 75.6 75.6">
+                                    <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                    <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                    <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                </svg>
+                            </div>
+                            <label class="container">Same As First Guarantor</label>
+                        </div>
+
+                        <div class="custom-radio">
+                            <div class="checkbox-wrapper-31">
+                                <input type="radio" name="nominee" id="sameAsSecondGuarantor" value="second-guarantor"
+                                    onchange="handleNomineeSelection()">
+                                <svg viewBox="0 0 75.6 75.6">
+                                    <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                    <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                    <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                </svg>
+                            </div>
+                            <label class="container">Same As Second Guarantor</label>
+                        </div>
+
+                        <div class="custom-radio">
+                            <div class="checkbox-wrapper-31">
+                                <input type="radio" name="nominee" id="newNominee" value="new-nominee"
+                                    onchange="handleNomineeSelection()">
+                                <svg viewBox="0 0 75.6 75.6">
+                                    <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                    <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                    <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                </svg>
+                            </div>
+                            <label class="container">New Nominee</label>
+                        </div>
+                    </div>
+
+                    <!-- Nominee Form Fields -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="nominee-name" name="nominee-name" required
+                                oninput="validateNameField(id)" disabled
+                                placeholder="EX:  Muhammad bin Bakhtiyar Khilji">
+                            <label for="nominee-name">Name <span class="required">*</span></label>
+                            <span class="error-message" id="error-nominee-name"></span>
+                            <span id="icon-nominee-name" class="validation-icon"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" id="nominee-mobile" name="nominee-mobile" required disabled
+                                placeholder="Wx: 01535762799" oninput="validateMobileField(id)">
+                            <label for="nominee-mobile">Mobile No <span class="required">*</span></label>
+                            <span class="error-message" id="error-nominee-mobile">11-digit valid mobile number</span>
+                            <span id="icon-nominee-mobile" class="validation-icon"></span>
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" id="nominee-national-id" name="nominee-national-id" required
+                                oninput="validateNidField(id)" disabled placeholder="3761119999">
+                            <label for="nominee-national-id">National ID <span class="required">*</span></label>
+                            <span class="error-message" id="error-nominee-national-id">Valid 10-digit National ID</span>
+                            <span id="icon-nominee-national-id" class="validation-icon"></span>
+
+
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="date" id="nominee-dob" name="nominee-dob" required disabled
+                                oninput="validateDropField(id)" onclick="validateDropField(id)">
+                            <label for="nominee-dob">DOB <span class="required">*</span></label>
+                            <span class="error-message" id="error-nominee-dob"></span>
+                            <span id="icon-nominee-dob" class="validation-icon"></span>
+
+                        </div>
+
+                        <div class="form-group">
+                            <select id="nominee-relation" name="nominee-relation" required disabled
+                                oninput="validateDropField(id)" onclick="validateDropField(id)">
+                                <option value disabled selected>Choose Relation</option>
+                                <option value="family">Family</option>
+                                <option value="friend">Friend</option>
+                                <option value="colleague">Colleague</option>
+                            </select>
+                            <label for="nominee-relation">Relationship (with Customer) <span
+                                    class="required">*</span></label>
+                            <span class="error-message" id="error-nominee-relation"></span>
+                            <span id="icon-nominee-relation" class="validation-icon"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="nominee-address" name="nominee-address" required disabled
+                            placeholder="EX: House No. 290, Purana Paltan. Dhaka – 1000"
+                            oninput="validateAddressField(id)"></textarea>
+                        <label for="nominee-address">Address <span class="required">*</span></label>
+                        <span class="error-message" id="error-nominee-address"></span>
+                        <span id="icon-nominee-address" class="validation-icon"></span>
+
+                    </div>
+
+
+                </div>
+                <!-- ----------------------------- -->
+
+
+
+                <!-- 4th Step Customer Family Information -->
+                <!-- 4th step customer family information -->
+            <div class="form-step" id="step-4">
+                <div class="navbar-form">
+                    <div class="navbar-header">
+
+                            <legend>
+                                <h3>Customer Family
+                                    Information</h3>
+                            </legend>
+                            <!-- </div> -->
+                            <div class="navbar-content" id="form-container">
+                                <div class="form-item">
+
+                                <div class="navbar-item">
+                                    <label for="same-as">Same As</label>
+                                    <select id="same-as" onchange="handleNewSelection()" onclick="validateFDropField(id)" oninput="validateFDropField(id)">
+                                        <option id="first-guarantor" value="first-guarantor">First Guarantor</option>
+                                        <option id="second-guarantor" value="second-guarantor">Second Guarantor</option>
+                                        <option id="nominee" value="nominee">Nominee</option>
+                                        <option id="new" value="new">New</option>
+                                    </select>
+
+                                </div>
+                                <div class="navbar-item">
+                                    <label for="birth-nid">Birth/NID</label>
+                                    <select id="birth-nid" disabled  oninput="validateFDropField(id)" onclick="validateFDropField(id)">
+                                        <option value="birth">Birth</option>
+                                        <option value="nid">NID</option>
+                                    </select>
+
+                                </div>
+                                <div class="navbar-item">
+                                    <label for="number">Number</label>
+                                    <input type="number" id="number" placeholder="Enter Number" disabled oninput="validateFNumberField(id)">
+                                </div>
+                                <div class="navbar-item">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" placeholder="Enter Name" disabled oninput="validateFNameField(id)">
+                                </div>
+                                <div class="navbar-item">
+                                    <label for="father-name">Father Name</label>
+                                    <input type="text" id="father-name" placeholder="Enter Father's Name" disabled oninput="validateFNameField(id)"> 
+                                </div>
+                                <div class="navbar-item">
+                                    <label for="mother-name">Mother Name</label>
+                                    <input type="text" id="mother-name" placeholder="Enter Mother's Name" disabled oninput="validateFNameField(id)">
+                                </div>
+                                <div class="navbar-item">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="text" id="mobile" placeholder="Enter Mobile Number" disabled oninput="validateFMobileField(id)">
+                                </div>
+                                <div class="navbar-item">
+                                    <label for="relation">Relation With</label>
+                                    <select id="relation" disabled onclick="validateFDropField(id)" oninput="validateFDropField(id)">
+                                        <option value="father">Father</option>
+                                        <option value="mother">Mother</option>
+                                        <option value="sibling">Sibling</option>
+                                        <option value="relative">Relative</option>
+                                    </select>
+                                </div>
+                                <div class="navbar-item">
+                                    <label for="action">Action</label>
+                                    <div class="action-button">
+                                        <button type="button" onclick="addFormStep()">+</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+              <!-- ---------------customers opinion---------- -->
+              <div class="form-step" id="step-5">
+                
+                    <legend>
+                        <h2>কাস্টমার সম্পর্কে মতামত</h2>
+                    </legend>
+
+
+
+                    <!-- Question 1 -->
+                    <div class="form-question">
+                        <label id="radio">১) কাস্টমারের আচরণ ভালো
+                            কিনা?</label>
+                        <div class="options">
+
+
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="behavior">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    হ্যাঁ
+
+                                </label>
+                            </div>
+
+
+
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="behavior">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    না
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div class="form-question">
+                        <label id="radio">২) কাস্টমারের সামাজিক অবস্থান
+                            কেমন?</label>
+                        <div class="options">
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="social-status">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    হ্যাঁ
+
+                                </label>
+                            </div>
+
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="social-status">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    না
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div class="form-question">
+                        <label id="radio">৩) কাস্টমার নেশাগ্রস্থ
+                            কিনা?</label>
+                        <div class="options">
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="addict">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    হ্যাঁ
+
+                                </label>
+                            </div>
+
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="addict">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    না
+
+                                </label>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div class="form-question">
+                        <label id="radio">৪) কাস্টমার এলাকায় সন্ত্রাসী কি
+                            না?</label>
+                        <div class="options">
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="goons">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    হ্যাঁ
+
+                                </label>
+                            </div>
+
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="goons">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    না
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 5 -->
+                    <div class="form-question">
+                        <label id="radio">৫) কাস্টমার রাজনীতির সহিত জরিত
+                            কিনা?</label>
+                        <div class="options">
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="politics">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    হ্যাঁ
+
+                                </label>
+                            </div>
+
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="politics">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    না
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 6 -->
+                    <div class="form-question">
+                        <label id="radio">৬) কাস্টমার কিস্তির টাকা সঠিকভাবে
+                            পরিশোধ করবে কি না?</label>
+                        <div class="options">
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="kisti-money">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    হ্যাঁ
+
+                                </label>
+                            </div>
+
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="kisti-money">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    না
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Question 7 -->
+                    <div class="form-question">
+                        <label id="radio">৭) কাস্টমারের পেশা কি?</label>
+                        <select id="profession" name="profession">
+                            <option value="business">ব্যাবসা</option>
+                            <option value="job">চাকুরী</option>
+                            <option value="student">ছাত্র</option>
+                            <option value="politics">রাজনীতি</option>
+                            <option value="homemaker">গৃহিণী</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 8 -->
+                    <div class="form-question">
+                        <label id="radio">৮) সার্বিক বিবেচনায় ক্রেতার কাছে
+                            পণ্য বিক্রিতে আপনার আগ্রহ আছে
+                            কিনা?</label>
+                        <div class="options">
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="agreement" required>
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    হ্যাঁ
+
+                                </label>
+                            </div>
+
+
+                            <div class="custom-radio">
+                                <div class="checkbox-wrapper-31">
+                                    <input type="radio" name="agreement">
+
+                                    <svg viewBox="0 0 75.6 75.6">
+                                        <circle class="background" cx="17.8" cy="17.8" r="17.8"></circle>
+                                        <circle class="stroke" cx="17.8" cy="17.8" r="14.37"></circle>
+                                        <polyline class="check" points="11.78 18.12 15.55 22.23 25.17 12.87"></polyline>
+                                    </svg>
+                                </div>
+                                <label class="container">
+
+                                    না
+
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+
+                <!-- ----------------investigator --------------->
+            <!-- Step 5: Investigator Information -->
+            <div class="form-step" id="step-6">
+
+                    <legend>
+                        <h3>Investigator
+                            Information</h3>
+                    </legend>
+                    <!-- Investigator ID -->
+                    <div class="form-field">
+                        <div class="form-group">
+                            <input type="text" id="investigator-id" placeholder="Enter Investigator Id"
+                                oninput="validateNumberField(id)" required>
+                            <label for="investigator-id">Investigator
+                                ID <span class="required">*</span></label>
+                            <span class="error-message" id="error-investigator-id"></span>
+
+                            <span id="icon-investigator-id" class="validation-icon"></span> 
+
+
+                        </div>
+
+                    </div>
+
+
+
+
+                    <!-- Investigation Note -->
+                    <div class="form-field">
+                        <div class="form-group"> <textarea id="investigation-note"
+                                placeholder="Enter Investigation Note" required
+                                oninput="validateIField(id)"></textarea>
+                            <label for="investigation-note">Investigation
+                                Note <span class="required">*</span></label>
+                            <span class="error-message" id="error-investigation-note"></span>
+                            <span id="icon-investigation-note" class="validation-icon"></span> 
+
+
+                        </div>
+                    </div>
+                    <!-- Remarks -->
+                    <div class="form-field">
+                        <div class="form-group">
+                            <select id="remarks" required onclick="validateDropField(id)">
+                                <option value disabled selected>Choose an
+                                    option</option>
+                                <option value="tv-exchange">TV
+                                    Exchange</option>
+                                <option value="ac-exchange">AC
+                                    Exchange</option>
+                            </select>
+                            <label for="remarks">Remarks
+                                <span class="required">*</span></label>
+                            <span class="error-message" id="error-remarks"></span>
+                            <span id="icon-remarks" class="validation-icon"></span> 
+
+
+                        </div>
+                    </div>
+
+
+            </div>
+
+                <!-- Button Container -->
+                <div class="button-container">
+                    <button type="button" class="btn" id="prev-btn" disabled>Previous</button>
+                    <button type="button" class="btn" id="next-btn">Next</button>
+                </div>
+
+
+
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- -customers opinion----------- -->
+
+
+
+
+    <div class="footer">
+        <p>Copyright &copy; 2021. Designed & developed by <legend>Walton Group</legend>
+        </p>
+        <p id="version">Version: LiveApp.31.8.2024.12</p>
+    </div>
+</body>
+
+</html>
